@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { CaptainDataContext } from '../context/CaptainContext'
+import axios from 'axios'
 
 const CaptainSignup = () => {
 
@@ -15,6 +17,8 @@ const CaptainSignup = () => {
     const [vehiclePlate, setVehiclePlate] = useState('')
     const [vehicleCapacity, setVehicleCapacity] = useState('')
     const [vehicleType, setVehicleType] = useState('')
+
+    const { captain, setCaptain } = React.useContext(CaptainDataContext)
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -37,7 +41,7 @@ const CaptainSignup = () => {
 
         if (response.status === 201) {
             const data = response.data
-            setCaptain(data.captain)
+            setCaptain(data.captain )
             localStorage.setItem('token', data.token)
             navigate('/captain-home')
         }
