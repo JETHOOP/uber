@@ -20,7 +20,6 @@ const UserLogout = () => {
 
     return (
         <div>
-
         </div>
     )
 }
