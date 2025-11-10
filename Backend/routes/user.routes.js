@@ -14,7 +14,6 @@ router.post('/register', [
     userController.registerUser
 );
 
-// User Login Route
 router.post('/login', [
     body('email').isEmail().withMessage('Invalid Email'),
     body('password').isLength({ min: 6 }).withMessage("Password must be at least 6 character long")
@@ -22,10 +21,8 @@ router.post('/login', [
     userController.loginUser
 );
 
-// Get User Profile Route
 router.get('/profile', authMiddleware.authUser, userController.getUserProfile);
 
-// Logout User Profile Route
 router.get('/logout', authMiddleware.authUser, userController.logoutUser);
 
 module.exports = router;
