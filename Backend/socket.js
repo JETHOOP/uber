@@ -11,10 +11,6 @@ function initializeSocket(server) {
             methods: ['GET', 'POST']
         }
     });
- 
-
-
-
     io.on('connection', (socket) => {
         console.log(`Client connected: ${socket.id}`);
 
@@ -28,7 +24,7 @@ function initializeSocket(server) {
             }
         });
 
-
+//this is comment
         socket.on('update-location-captain', async (data) => {
             const { userId, location } = data;
 
